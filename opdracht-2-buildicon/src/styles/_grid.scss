@@ -1,0 +1,149 @@
+// =============================================
+// Herbruikbaar grid systeem
+// 12 kolommen, mobile first, gebouwd met flexbox.
+//
+// Gebruik:
+//   <div class="container">
+//     <div class="row">
+//       <div class="col-12 col-md-6 col-lg-4">...</div>
+//     </div>
+//   </div>
+// =============================================
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// ---------------------------------------------
+// Container
+// ---------------------------------------------
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: math.div(v.$grid-gutter, 2);
+
+  @each $name, $max-width in v.$container-max-widths {
+    @include m.respond-from($name) {
+      max-width: $max-width;
+    }
+  }
+}
+
+// ---------------------------------------------
+// Row
+// ---------------------------------------------
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: math.div(v.$grid-gutter, -2);
+}
+
+.row.no-gutters {
+  margin-inline: 0;
+
+  > [class^='col'],
+  > [class*=' col'] {
+    padding-inline: 0;
+  }
+}
+
+// ---------------------------------------------
+// Kolommen
+// ---------------------------------------------
+[class^='col'],
+[class*=' col'] {
+  position: relative;
+  width: 100%;
+  padding-inline: math.div(v.$grid-gutter, 2);
+}
+
+// Mixin die de breedte- en offsetklassen van een reeks aanmaakt.
+// $infix is leeg voor mobiel, anders '-sm', '-md', '-lg' of '-xl'.
+@mixin make-columns($infix: '') {
+  .col#{$infix} {
+    flex: 1 0 0%;
+    width: auto;
+  }
+
+  .col#{$infix}-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  @for $i from 1 through v.$grid-columns {
+    .col#{$infix}-#{$i} {
+      flex: 0 0 auto;
+      width: math.percentage(math.div($i, v.$grid-columns));
+    }
+  }
+
+  .offset#{$infix}-0 {
+    margin-left: 0;
+  }
+
+  @for $i from 1 through v.$grid-columns - 1 {
+    .offset#{$infix}-#{$i} {
+      margin-left: math.percentage(math.div($i, v.$grid-columns));
+    }
+  }
+}
+
+// Kolommen vanaf mobiel
+@include make-columns();
+
+// Kolommen per breakpoint
+@each $name, $width in v.$breakpoints {
+  @include m.respond-from($name) {
+    @include make-columns('-#{$name}');
+  }
+}
+
+// ---------------------------------------------
+// Uitlijning
+// ---------------------------------------------
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+.align-center {
+  align-items: center;
+}
+.align-end {
+  align-items: flex-end;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+@each $name, $width in v.$breakpoints {
+  @include m.respond-from($name) {
+    .text-#{$name}-left {
+      text-align: left;
+    }
+    .text-#{$name}-center {
+      text-align: center;
+    }
+    .text-#{$name}-right {
+      text-align: right;
+    }
+  }
+}

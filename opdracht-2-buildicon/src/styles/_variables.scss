@@ -1,0 +1,28 @@
+// Kleuren van BuildIcon
+$yellow: #feb62a;
+$dark: #222931;
+$text: #5f656d;
+$grey-1: #f8f9f9;
+$grey-2: #f5f6f6;
+
+// Fonts
+$font-heading: 'Hind', sans-serif;
+$font-text: 'Open Sans', sans-serif;
+
+// Grid: zelfde instellingen als opdracht 1
+$grid-columns: 12;
+$grid-gutter: 30px;
+
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);
+
+$container-max-widths: (
+  'sm': 540px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1170px,
+);
