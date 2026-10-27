@@ -1,0 +1,5 @@
+GitHub-repository Opdracht 2: BuildIcon Website
+
+https://github.com/Mister030/kzd-frontend
+
+De code staat in de map opdracht-2-buildicon.
