@@ -1,0 +1,71 @@
+// =============================================
+// Knoppen
+// =============================================
+@use 'variables' as v;
+
+.btn {
+  display: inline-block;
+  position: relative;
+  border: 0 none;
+  border-radius: 0;
+  font-family: v.$font-body;
+  font-weight: 700;
+  color: v.$color-white;
+  cursor: pointer;
+  transition: v.$transition-base;
+
+  &:hover {
+    background-color: v.$color-primary;
+    color: v.$color-white;
+  }
+}
+
+// Blauwe knop uit de topbar
+.btn--bg {
+  padding: 8px 30px;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: v.$color-primary;
+
+  &:hover {
+    background-color: v.$color-white;
+    color: v.$color-topbar;
+  }
+
+  i { margin-left: 5px; }
+}
+
+.radius-2x {
+  border-radius: 22px;
+}
+
+// Donkere knop met pijl rechts ("View All Offers")
+.btn--black-border {
+  padding: 15px 45px 15px 18px;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #333;
+
+  i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+  }
+}
+
+// Transparante knop met witte rand (hero)
+.btn--theme {
+  padding: 15px 45px;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid v.$color-white;
+  color: v.$color-white;
+
+  &:hover {
+    background-color: v.$color-white;
+    border-color: v.$color-white;
+    color: v.$color-black;
+  }
+}

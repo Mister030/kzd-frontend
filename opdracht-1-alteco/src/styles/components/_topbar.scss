@@ -1,0 +1,53 @@
+// =============================================
+// Topbar: contactgegevens, social links en knop
+// =============================================
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.top-bar {
+  padding: 15px 0;
+  background-color: v.$color-topbar;
+
+  ul li { display: inline-block; }
+
+  ul li a {
+    position: relative;
+    display: inline-block;
+    padding: 0 12px;
+    font-size: 13px;
+    color: v.$color-white;
+
+    @include m.respond-from('lg') {
+      padding: 0 20px;
+      font-size: 14px;
+    }
+  }
+
+  ul li:first-child a { padding-left: 0; }
+  ul li:last-child a { padding-right: 0; }
+
+  // Streepje tussen de items
+  ul li a::after {
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    bottom: 2.5px;
+    right: 0;
+    border-right: 1px solid #999;
+    opacity: 0.7;
+  }
+
+  ul li:last-child a::after { display: none; }
+  ul li a:hover { color: v.$color-primary; }
+}
+
+.top-bar__block {
+  margin-bottom: 10px;
+  text-align: center;
+
+  @include m.respond-from('md') { margin-bottom: 0; }
+
+  &:last-child { margin-bottom: 0; }
+}
+
+.top-bar__contact li a i { margin-right: 7px; }

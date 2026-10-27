@@ -1,0 +1,94 @@
+// =============================================
+// What We Offers: afbeelding links, tekst rechts
+// =============================================
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.offer {
+  position: relative;
+}
+
+// Op mobiel en tablet staat de afbeelding boven de tekst,
+// vanaf desktop vult hij de linkerhelft van de sectie.
+.offer__image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+
+  @include m.respond-from('md') { height: 380px; }
+
+  @include m.respond-from('lg') {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 49%;
+    height: 100%;
+  }
+}
+
+// De tekst moet boven de afbeelding liggen
+.offer .container {
+  position: relative;
+  z-index: 1;
+}
+
+.offer__body {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @include m.respond-from('lg') {
+    padding-top: v.$section-space;
+    padding-bottom: v.$section-space;
+  }
+}
+
+.offer .main-heading p {
+  margin-top: 16px;
+  padding: 0 0 0 25px;
+  border-left: 3px solid v.$color-primary;
+  font-style: italic;
+}
+
+.offer__item {
+  margin-bottom: 40px;
+
+  > .offer__icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+    color: v.$color-grey-icon;
+  }
+
+  h4 {
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: v.$color-heading;
+  }
+
+  h4 a:hover { color: v.$color-primary; }
+
+  p {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 26px;
+    color: v.$color-text;
+  }
+}
+
+.offer__more {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: v.$color-text;
+
+  i { margin-left: 5px; }
+
+  &:hover { color: v.$color-primary; }
+}
+
+.offer__button {
+  margin-top: 20px;
+
+  @include m.respond-from('lg') { margin-top: 60px; }
+}

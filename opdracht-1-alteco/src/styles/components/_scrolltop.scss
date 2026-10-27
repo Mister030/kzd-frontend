@@ -1,0 +1,41 @@
+// =============================================
+// Scroll to top: blauwe knop rechtsonder
+// =============================================
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.topcontrol {
+  @include m.flex-center;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border: 0 none;
+  background: v.$color-primary;
+  color: v.$color-white;
+  cursor: pointer;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease 0s;
+
+  // Verborgen tot je ver genoeg gescrold hebt
+  opacity: 0;
+  visibility: hidden;
+
+  @include m.respond-from('md') {
+    right: 25px;
+    bottom: 25px;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    background: #333;
+    color: v.$color-white;
+  }
+}

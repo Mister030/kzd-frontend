@@ -1,0 +1,12 @@
+# Systeem
+.DS_Store
+
+# Dependencies en builds (per opdracht)
+node_modules
+dist
+
+# Claude Code
+.claude/
+
+# Tijdelijke Word-bestanden
+~$*

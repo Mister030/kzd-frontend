@@ -1,0 +1,104 @@
+// =============================================
+// Basis styling
+// =============================================
+@use 'variables' as v;
+@use 'mixins' as m;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: v.$font-body;
+  font-size: v.$font-size-base;
+  line-height: v.$line-height-base;
+  color: v.$color-body;
+  background-color: v.$color-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: v.$font-heading;
+  color: #333;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: v.$transition-base;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Ruimte boven en onder een sectie
+.space {
+  padding: v.$section-space-mobile 0;
+
+  @include m.respond-from('lg') {
+    padding: v.$section-space 0;
+  }
+}
+
+// Sectiekop: klein blauw bovenschrift, grote titel, intro
+.main-heading {
+  margin-bottom: 40px;
+
+  @include m.respond-from('lg') {
+    margin-bottom: 50px;
+  }
+
+  h6 {
+    margin: 0 0 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: v.$color-primary;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: v.$color-dark;
+
+    @include m.respond-from('md') { font-size: 34px; }
+    @include m.respond-from('lg') { font-size: 40px; }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 28px;
+    color: v.$color-dark;
+  }
+}
+
+// De drie grijze blokjes onder de titel van "Our Services"
+.dot {
+  margin: 15px 0;
+
+  span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 4px;
+    background-color: v.$color-dot;
+  }
+
+  span:last-child {
+    margin-right: 0;
+  }
+}

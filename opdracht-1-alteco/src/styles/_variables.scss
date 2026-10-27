@@ -1,0 +1,48 @@
+// =============================================
+// Variabelen
+// Kleuren en fonts komen uit het Alteco template
+// =============================================
+
+// Kleuren
+$color-primary: #0b57e3;
+$color-dark: #282828;
+$color-heading: #323232;
+$color-topbar: #333333;
+$color-text: #666666;
+$color-body: #777777;
+$color-white: #ffffff;
+$color-grey-light: #fbfbfb;
+$color-grey-icon: #cccccc;
+$color-dot: #bebebe;
+$color-black: #000000;
+
+// Typografie
+$font-heading: 'Rubik', sans-serif;
+$font-body: 'Roboto', sans-serif;
+$font-size-base: 15px;
+$line-height-base: 28px;
+
+// Grid
+$grid-columns: 12;
+$grid-gutter: 30px;
+
+// Breakpoints (mobile first)
+$breakpoints: (
+  'sm': 576px,  // grote telefoon
+  'md': 768px,  // tablet
+  'lg': 992px,  // kleine desktop
+  'xl': 1200px, // desktop
+);
+
+// Maximale breedte van de container per breakpoint
+$container-max-widths: (
+  'sm': 540px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1170px,
+);
+
+// Overig
+$section-space: 120px;
+$section-space-mobile: 60px;
+$transition-base: all ease-in-out 0.3s;

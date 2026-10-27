@@ -1,0 +1,34 @@
+// =============================================
+// Mixins
+// =============================================
+@use 'sass:map';
+@use 'variables' as v;
+
+// Media query vanaf een breakpoint (mobile first)
+@mixin respond-from($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media (min-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "Onbekend breakpoint: #{$breakpoint}";
+  }
+}
+
+// Media query tot een breakpoint (voor uitzonderingen, zoals het mobiele menu)
+@mixin respond-until($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media (max-width: map.get(v.$breakpoints, $breakpoint) - 0.02px) {
+      @content;
+    }
+  } @else {
+    @error "Onbekend breakpoint: #{$breakpoint}";
+  }
+}
+
+// Flexbox centreren
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

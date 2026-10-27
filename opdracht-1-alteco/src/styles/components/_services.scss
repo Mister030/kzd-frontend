@@ -1,0 +1,67 @@
+// =============================================
+// Our Services: vier blokken met rond icoon
+// =============================================
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.service .main-heading {
+  p {
+    margin: 0 auto;
+
+    @include m.respond-from('lg') { max-width: 730px; }
+  }
+}
+
+.service__item {
+  margin-bottom: 40px;
+
+  @include m.respond-from('lg') { margin-bottom: 0; }
+
+  h6 {
+    margin: 0 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: v.$color-primary;
+  }
+
+  h5 {
+    margin: 0 0 20px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: v.$color-heading;
+  }
+
+  h5 a:hover { color: v.$color-primary; }
+
+  p {
+    margin: 0;
+    line-height: 28px;
+    color: #555;
+  }
+}
+
+.service__icon {
+  @include m.flex-center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  border: 1px solid v.$color-primary;
+  background-color: v.$color-primary;
+  transition: v.$transition-base;
+
+  svg {
+    width: 40px;
+    height: 40px;
+    color: v.$color-white;
+    transition: v.$transition-base;
+  }
+}
+
+.service__item:hover .service__icon {
+  background-color: v.$color-white;
+
+  svg { color: #333; }
+}

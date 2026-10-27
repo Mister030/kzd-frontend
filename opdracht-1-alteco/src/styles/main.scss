@@ -1,0 +1,16 @@
+// =============================================
+// Alteco - Opdracht 1 (KZD Frontend development)
+// Hoofdbestand: laadt het grid systeem en alle onderdelen
+// =============================================
+@use 'variables';
+@use 'mixins';
+@use 'grid';
+@use 'base';
+@use 'buttons';
+
+@use 'components/topbar';
+@use 'components/header';
+@use 'components/hero';
+@use 'components/offers';
+@use 'components/services';
+@use 'components/scrolltop';

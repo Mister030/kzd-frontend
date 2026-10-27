@@ -1,0 +1,124 @@
+// =============================================
+// Hero: grote banner met tekst en knoppen
+// =============================================
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__image {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+
+  @include m.respond-from('md') { height: 480px; }
+  @include m.respond-from('lg') { height: 640px; }
+}
+
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 55px;  // ruimte voor de pijl links
+  right: 55px; // ruimte voor de pijl rechts
+  transform: translateY(-50%);
+  color: v.$color-white;
+
+  @include m.respond-from('md') {
+    left: 9%;
+    right: auto;
+    top: 34%;
+    transform: none;
+  }
+}
+
+.hero__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  @include m.respond-from('md') { font-size: 30px; }
+  @include m.respond-from('lg') { font-size: 40px; }
+
+  span {
+    display: inline-block;
+    padding: 10px;
+    background-color: v.$color-primary;
+    color: v.$color-white;
+  }
+
+  strong { font-weight: 700; }
+}
+
+.hero__subtitle {
+  margin: 20px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+
+  @include m.respond-from('md') { font-size: 18px; }
+  @include m.respond-from('lg') { font-size: 22px; }
+
+  span {
+    display: inline-block;
+    padding: 15px;
+    background-color: v.$color-black;
+    color: v.$color-white;
+  }
+}
+
+.hero__buttons {
+  display: none;
+  margin-top: 30px;
+
+  @include m.respond-from('md') { display: block; }
+
+  .btn { margin-right: 15px; }
+}
+
+// Pijlen links en rechts
+.hero__control {
+  @include m.flex-center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  background-color: v.$color-black;
+  color: v.$color-white;
+  border: 0 none;
+  cursor: pointer;
+
+  @include m.respond-from('lg') {
+    width: 80px;
+    height: 90px;
+  }
+
+  &--prev { left: 0; }
+  &--next { right: 0; }
+}
+
+// Bolletjes onderaan
+.hero__indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid v.$color-white;
+  }
+
+  span.is-active {
+    background-color: v.$color-primary;
+    border-color: v.$color-primary;
+  }
+}
