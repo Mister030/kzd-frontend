@@ -1,8 +1,11 @@
 <script setup>
 import TheHeader from './components/TheHeader.vue'
+import HeroBanner from './components/HeroBanner.vue'
 </script>
 
 <template>
   <TheHeader />
-  <main></main>
+  <main>
+    <HeroBanner />
+  </main>
 </template>
